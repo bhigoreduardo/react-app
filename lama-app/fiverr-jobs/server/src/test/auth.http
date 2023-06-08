@@ -6,8 +6,8 @@ POST {{ server }}/{{ endPoint }}/create HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "first",
-  "email": "first@email.com",
+  "username": "fakefirst",
+  "email": "fakefirst@email.com",
   "password": "password",
   "image": "https://lh3.googleusercontent.com/a/AAcHTtcRLD0NaIOz4aNsYR811qJxXWMFExFwo3_zqL3cDg=s360-c-no",
   "country": "Brazil",
