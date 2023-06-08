@@ -13,12 +13,17 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
+  const clearFields = () => {
+    setUsername("");
+    setPassword("");
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const { data } = await api.post("/auth/login", { username, password });
       handleCurrentUser(data);
+      clearFields();
       navigate("/");
     } catch (error) {
       setError(error.response.message);
