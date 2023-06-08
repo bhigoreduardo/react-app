@@ -25,13 +25,22 @@ function Register() {
   const handleChangeUser = (e) => {
     setUser((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
+  const clearFields = () => {
+    let _user = {};
+    Object.keys(user).map((key) => {
+      _user[key] = "";
+    });
+    setUser(_user);
+    setFile(null);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const imageUrl = await upload(file);
 
     try {
-      await api.post("/auth/register", { ...user, image: imageUrl });
+      await api.post("/auth/create", { ...user, image: imageUrl });
+      clearFields();
       navigate("/login");
     } catch (error) {
       console.log(error);
