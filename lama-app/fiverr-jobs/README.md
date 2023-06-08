@@ -1,0 +1,1 @@
+TODO: Testar register do front end enviando image pro cloudinary
