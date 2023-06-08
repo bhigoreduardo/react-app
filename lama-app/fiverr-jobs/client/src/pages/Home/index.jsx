@@ -7,7 +7,6 @@ import Explore from "./Explore";
 import CategoryCard from "./CategoryCard";
 import ProjectCard from "./ProjectCard";
 import Slide from "../../components/Slide";
-import "./Home.style.scss";
 
 function Home() {
   return (
