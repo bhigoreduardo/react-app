@@ -36,7 +36,7 @@ export const login = async (req, res, next) => {
     );
     const { password, ...logedPublicUser } = logedUser._doc;
     return res
-      .cookie("token", token, { httpOnly: true })
+      .cookie("accessToken", token, { httpOnly: true })
       .status(200)
       .json(logedPublicUser);
   } catch (error) {
@@ -46,7 +46,7 @@ export const login = async (req, res, next) => {
 
 export const logout = async (req, res) => {
   return res
-    .cookie("token", { sameSite: "none", secure: true })
+    .cookie("accessToken", { sameSite: "none", secure: true })
     .status(200)
     .json("User has logouted");
 };
