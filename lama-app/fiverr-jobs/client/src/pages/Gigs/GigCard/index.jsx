@@ -1,23 +1,41 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
+import api from "../../../libs/api";
 import "./GigCard.style.scss";
 
 function GigCard({ item }) {
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["gigCard"],
+    queryFn: () => api.get(`/users/${item.userId}`).then((res) => res.data),
+  });
   return (
-    <Link to={`/gigs/${item.id}`} className="link">
+    <Link to={`/gigs/${item._id}`} className="link">
       <div className="gigCard">
-        <img src={item.image} alt={item.username} />
+        <img src={item.cover} alt={item.title} />
 
         <div className="info">
-          <div className="user">
-            <img src={item.profile} alt={item.username} />
-            <span>{item.username}</span>
-          </div>
-          <p>{item.description}</p>
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p>{error}</p>
+          ) : (
+            <div className="user">
+              <img
+                src={data.image || "/img/noavatar.jpg"}
+                alt={data.username}
+              />
+              <span>{data.username}</span>
+            </div>
+          )}
+          <p>{item.description.substring(0, 70)}</p>
           <div className="star">
-            <img src="./img/star.png" alt="" />
-            <span>{item.star}</span>
+            <img src="./img/star.png" alt="Star" />
+            <span>
+              {!isNaN(item.starAmount / item.starNumber) &&
+                Math.round(item.starAmount / item.starNumber)}
+            </span>
           </div>
         </div>
 

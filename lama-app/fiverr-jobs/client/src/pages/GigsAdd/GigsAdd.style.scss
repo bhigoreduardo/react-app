@@ -35,6 +35,7 @@
         select,
         textarea {
           padding: 20px;
+          resize: none;
         }
 
         button {
@@ -45,6 +46,36 @@
           font-size: 18px;
           background-color: #1dbf73;
           cursor: pointer;
+        }
+
+        .add {
+          display: flex;
+          justify-content: space-between;
+
+          input {
+            width: 80%;
+          }
+        }
+
+        .addedFeatures {
+          display: flex;
+          gap: 20px;
+
+          button {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            height: 30px;
+            font-size: 12px;
+            font-weight: 400;
+            background: transparent;
+            color: red;
+            border: 1px solid red;
+
+            span {
+              color: gray;
+            }
+          }
         }
       }
     }

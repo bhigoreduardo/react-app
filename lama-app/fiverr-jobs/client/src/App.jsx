@@ -1,4 +1,5 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -14,12 +15,16 @@ import Messages from "./pages/Messages";
 import MessagesId from "./pages/MessagesId";
 
 function App() {
+  const queryClient = new QueryClient();
+
   const Layout = () => {
     return (
       <main className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
       </main>
     );
   };

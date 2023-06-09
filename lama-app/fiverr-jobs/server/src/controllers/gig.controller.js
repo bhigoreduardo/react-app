@@ -1,4 +1,5 @@
 import Gig from "../models/gig.model.js";
+import Review from "../models/review.model.js";
 import exception from "../utils/exception.js";
 
 export const create = async (req, res, next) => {
@@ -67,6 +68,55 @@ export const findAll = async (req, res, next) => {
   try {
     const gigs = await Gig.find(filter).sort({ [query.sort]: -1 });
     return res.status(200).json(gigs);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const findAllReviewsById = async (req, res, next) => {
+  try {
+    const reviews = await Review.find({ gigId: req.params.id });
+    return res.status(200).json(reviews);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const createReview = async (req, res, next) => {
+  try {
+    // TODO: Adicionar condição de somente cliente comprador poder criar review
+    const review = await Review.findOne({
+      gigId: req.params.id,
+      userId: req.userId,
+    });
+    if (review)
+      next(exception(403, "You have already created a review for this gig!"));
+
+    const _review = await Review.create({
+      gigId: req.params.id,
+      userId: req.userId,
+      star: req.body.star,
+      description: req.body.description,
+    });
+    await Gig.findByIdAndUpdate(req.params.id, {
+      $inc: { starAmount: req.body.star, starNumber: 1 },
+    });
+    return res.status(201).json(_review);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const removeReview = async (req, res, next) => {
+  try {
+    const review = await Review.findOne({
+      gigId: req.params.id,
+      userId: req.userId,
+    });
+    if (!review) next(exception(404, "Not found"));
+    
+    await Review.findByIdAndDelete(review._id);
+    return res.sendStatus(204);
   } catch (error) {
     next(error);
   }
