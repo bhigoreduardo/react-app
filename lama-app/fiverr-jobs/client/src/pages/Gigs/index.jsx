@@ -76,8 +76,6 @@ function Gigs() {
           <div className="cards">
             {data?.length > 0 &&
               data.map((item) => <GigCard key={item._id} item={item} />)}
-            {/* {gigs?.length > 0 &&
-            gigs.map((item) => <GigCard key={item.id} item={item} />)} */}
           </div>
         )}
       </div>

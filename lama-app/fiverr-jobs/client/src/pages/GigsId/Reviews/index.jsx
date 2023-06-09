@@ -4,8 +4,10 @@ import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import api from "../../../libs/api";
 import Review from "../Review";
 import "./Reviews.style.scss";
+import { useEffect, useState } from "react";
 
 function Reviews({ gigId }) {
+  const [orders, setOrders] = useState([]);
   const queryClient = new QueryClient();
   const { isLoading, error, data } = useQuery({
     queryKey: ["reviews"],
@@ -19,6 +21,14 @@ function Reviews({ gigId }) {
     mutationFn: () => api.delete(`gigs/${gigId}/reviews`),
     onSuccess: () => queryClient.invalidateQueries(["reviews"]),
   });
+  const getOders = async () => {
+    try {
+      const { data } = await api.get(`/gigs/${gigId}/orders`);
+      setOrders(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     mutation.mutate({
@@ -26,6 +36,9 @@ function Reviews({ gigId }) {
       star: e.target[1].value,
     });
   };
+  useEffect(() => {
+    getOders();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="reviews">
@@ -37,23 +50,29 @@ function Reviews({ gigId }) {
       ) : !data?.length > 0 ? (
         <p>Add the first review</p>
       ) : (
-        data.map((item) => <Review key={item._id} review={item} mutation={deleteMutation} />)
+        data.map((item) => (
+          <Review key={item._id} review={item} mutation={deleteMutation} />
+        ))
       )}
-      <div className="add">
-        <h3>Add a review</h3>
+      {!orders?.length > 0 ? (
+        <p>Buy and review this gig</p>
+      ) : (
+        <div className="add">
+          <h3>Add a review</h3>
 
-        <form className="addForm" onSubmit={handleSubmit}>
-          <input type="text" placeholder="write your opinion" />
-          <select name="" id="">
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-          <button>Send</button>
-        </form>
-      </div>
+          <form className="addForm" onSubmit={handleSubmit}>
+            <input type="text" placeholder="write your opinion" />
+            <select name="" id="">
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+            <button>Send</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
