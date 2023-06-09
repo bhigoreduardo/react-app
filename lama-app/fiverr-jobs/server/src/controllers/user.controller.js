@@ -9,3 +9,14 @@ export const findById = async (req, res, next) => {
     next(error);
   }
 };
+
+export const remove = async (req, res, next) => {
+  try {
+    if (!req.userId !== req.params.id)
+      return next(exception(403, "User dant has permition"));
+    await User.findByIdAndDelete(req.params.id);
+    return res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};

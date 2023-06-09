@@ -8,8 +8,6 @@ import "./Gigs.style.scss";
 
 function Gigs() {
   const { search } = useLocation();
-  const location = useLocation();
-  console.log(location);
   const [sort, setSort] = useState("sales");
   const [open, setOpen] = useState(false);
   const minRef = useRef();
