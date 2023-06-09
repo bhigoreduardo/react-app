@@ -7,6 +7,7 @@ import exception from "../utils/exception.js";
 
 export const makePayment = async (req, res, next) => {
   try {
+    if (res.isSeller) next(exception(400, "Sellers dont has buyer"));
     const stripe = new Stripe(process.env.PAYMENT_STRIPE_PRIVATE_KEY);
     const gig = await Gig.findById(req.body.gigId);
 
@@ -54,6 +55,11 @@ export const confirmPayment = async (req, res, next) => {
           isCompleted: true,
         },
       }
+    );
+    await Gig.findByIdAndUpdate(
+      order.gigId,
+      { $inc: { sales: 1 } },
+      { new: true }
     );
     return res.status(200).json(order);
   } catch (error) {

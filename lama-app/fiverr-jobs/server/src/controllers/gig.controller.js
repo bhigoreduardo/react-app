@@ -85,6 +85,7 @@ export const findAllReviewsById = async (req, res, next) => {
 
 export const createReview = async (req, res, next) => {
   try {
+    if (req.isSeller) return next(exception(400, "Seller dont create reviews"));
     const orders = await Order.find({
       gigId: req.params.id,
       buyerId: req.userId,

@@ -1,12 +1,15 @@
 import { Link, useParams } from "react-router-dom";
 import { Slider } from "infinite-react-carousel/lib";
 import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
 
+import { UserContext } from "../../contexts/UserContext";
 import api from "../../libs/api";
 import Reviews from "./Reviews";
 import "./GigId.style.scss";
 
 function GigId() {
+  const { currentUser } = useContext(UserContext);
   const { id } = useParams();
 
   const { isLoading, error, data } = useQuery({
@@ -184,9 +187,11 @@ function GigId() {
                 ))}
             </div>
 
-            <Link to={`/payment/${id}`} className="link">
-              Continue
-            </Link>
+            {!currentUser.isSeller && (
+              <Link to={`/payment/${id}`} className="link">
+                Continue
+              </Link>
+            )}
           </div>
         </div>
       )}

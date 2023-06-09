@@ -27,7 +27,7 @@ const GigsOrder = () => {
     } catch (error) {
       console.log(error);
       if (error.response.status === 404) {
-        const { data } = api.post("/conversations", {
+        const { data } = await api.post("/conversations", {
           to: currentUser.isSeller ? buyerId : sellerId,
           sellerName: order.sellerName,
           buyerName: order.buyerName,

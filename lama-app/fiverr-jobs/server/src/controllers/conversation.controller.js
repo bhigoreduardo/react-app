@@ -54,10 +54,9 @@ export const findByIds = async (req, res, next) => {
     const buyerConversation = await Conversation.findOne({
       id: req.body.buyerId + req.body.sellerId,
     });
-    if (!sellerConversation || !buyerConversation)
-      next(exception(404, "Not found"));
-
     const conversation = sellerConversation || buyerConversation;
+    if (!conversation) return next(exception(404, "Not found"));
+
     return res.status(200).json(conversation);
   } catch (error) {
     next(error);
