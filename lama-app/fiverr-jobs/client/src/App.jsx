@@ -13,6 +13,8 @@ import GigsPortfolio from "./pages/GigsPortfolio";
 import GigsOrder from "./pages/GigsOrder";
 import Messages from "./pages/Messages";
 import MessagesId from "./pages/MessagesId";
+import Payment from "./pages/Payment";
+import Success from "./pages/Success";
 
 function App() {
   const queryClient = new QueryClient();
@@ -61,6 +63,14 @@ function App() {
         {
           path: "/my-gigs",
           element: <GigsPortfolio />,
+        },
+        {
+          path: "/payment/:gigId",
+          element: <Payment />,
+        },
+        {
+          path: "/success",
+          element: <Success />,
         },
         {
           path: "/orders",

@@ -1,5 +1,6 @@
 import Gig from "../models/gig.model.js";
 import Review from "../models/review.model.js";
+import Order from "../models/order.model.js";
 import exception from "../utils/exception.js";
 
 export const create = async (req, res, next) => {
@@ -84,7 +85,12 @@ export const findAllReviewsById = async (req, res, next) => {
 
 export const createReview = async (req, res, next) => {
   try {
-    // TODO: Adicionar condição de somente cliente comprador poder criar review
+    const orders = await Order.find({
+      gigId: req.params.id,
+      buyerId: req.userId,
+    });
+    if (!orders) return next(exception(403, "User not has buyer"));
+
     const review = await Review.findOne({
       gigId: req.params.id,
       userId: req.userId,
@@ -114,9 +120,21 @@ export const removeReview = async (req, res, next) => {
       userId: req.userId,
     });
     if (!review) next(exception(404, "Not found"));
-    
+
     await Review.findByIdAndDelete(review._id);
     return res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const findAllOrdersByUser = async (req, res, next) => {
+  try {
+    const orders = await Order.find({
+      gigId: req.params.id,
+      buyerId: req.userId,
+    });
+    return res.status(200).json(orders);
   } catch (error) {
     next(error);
   }

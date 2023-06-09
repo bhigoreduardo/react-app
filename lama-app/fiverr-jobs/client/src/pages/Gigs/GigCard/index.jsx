@@ -45,8 +45,8 @@ function GigCard({ item }) {
           <div className="price">
             <span>STARTING AT</span>
             <h2>
-              $ {item.price}
-              <sup>99</sup>
+              ${item.price.toString().split(".")[0]}.
+              <sup>{item.price.toString().split(".")[1] || "00"}</sup>
             </h2>
           </div>
         </div>

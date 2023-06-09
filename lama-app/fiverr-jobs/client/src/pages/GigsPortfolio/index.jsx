@@ -59,15 +59,18 @@ function GigsPortfolio() {
                 data.map((item) => (
                   <tr key={item._id}>
                     <td>
-                      <img
-                        className="image"
-                        src={item.cover}
-                        alt={item.title}
-                      />
+                      <Link to={`/gigs/${item._id}`}>
+                        <img
+                          className="image"
+                          src={item.cover}
+                          alt={item.title}
+                        />
+                      </Link>
                     </td>
                     <td>{item.title}</td>
                     <td>
-                      {item.price}.<sup>99</sup>
+                      ${item.price.toString().split(".")[0]}.
+                      <sup>{item.price.toString().split(".")[1] || "00"}</sup>
                     </td>
                     <td>{item.sales}</td>
                     <td>
@@ -80,23 +83,6 @@ function GigsPortfolio() {
                     </td>
                   </tr>
                 ))}
-              {/* <tr>
-              <td>
-                <img
-                  className="image"
-                  src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt=""
-                />
-              </td>
-              <td>Ai generated concept art</td>
-              <td>
-                120.<sup>99</sup>
-              </td>
-              <td>41</td>
-              <td>
-                <img className="delete" src="./img/delete.png" alt="" />
-              </td>
-            </tr> */}
             </tbody>
           </table>
         </div>

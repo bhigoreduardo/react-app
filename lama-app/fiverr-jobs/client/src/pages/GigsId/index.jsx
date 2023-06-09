@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Slider } from "infinite-react-carousel/lib";
 import { useQuery } from "@tanstack/react-query";
 
@@ -123,7 +123,13 @@ function GigId() {
                     </div>
                     <div className="item">
                       <span className="title">Member since</span>
-                      <span className="description">{dataUser.createdAt}</span>
+                      <span className="description">
+                        {new Date(dataUser.createdAt).toDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </span>
                     </div>
                     <div className="item">
                       <span className="title">Avg. response time</span>
@@ -150,7 +156,10 @@ function GigId() {
           <div className="right">
             <div className="price">
               <h3>{data.shortTitle}</h3>
-              <h2>$ {data.price}</h2>
+              <h2>
+                ${data.price.toString().split(".")[0]}.
+                <sup>{data.price.toString().split(".")[1] || "00"}</sup>
+              </h2>
             </div>
             <p>{data.shortDescription}</p>
 
@@ -175,7 +184,9 @@ function GigId() {
                 ))}
             </div>
 
-            <button>Continue</button>
+            <Link to={`/payment/${id}`} className="link">
+              Continue
+            </Link>
           </div>
         </div>
       )}

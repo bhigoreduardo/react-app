@@ -5,6 +5,7 @@ import {
   create,
   createReview,
   findAll,
+  findAllOrdersByUser,
   findAllReviewsById,
   findById,
   remove,
@@ -20,5 +21,6 @@ router.get("/", findAll);
 router.post("/:id/reviews", verifyToken, createReview);
 router.get("/:id/reviews", findAllReviewsById);
 router.delete("/:id/reviews", verifyToken, removeReview);
+router.get("/:id/orders", verifyToken, findAllOrdersByUser);
 
 export default router;
