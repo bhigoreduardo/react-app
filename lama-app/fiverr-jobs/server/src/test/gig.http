@@ -35,3 +35,18 @@ GET {{ server }}/{{ endPoint }}/{{ gigId }} HTTP/1.1
 
 ### GET /
 GET {{ server }}/{{ endPoint }}?category=Category HTTP/1.1
+
+### POST /:id/reviews
+POST {{ server }}/{{ endPoint }}/{{ gigId }}/reviews HTTP/1.1
+Content-Type: application/json
+
+{
+  "star": 4,
+  "description": "Aaking it look like readable English. Many desktop publishing packages and web page editor"
+}
+
+### GET /:id/reviews
+GET {{ server }}/{{ endPoint }}/{{ gigId }}/reviews HTTP/1.1
+
+### DELETE /:id/reviews
+DELETE {{ server }}/{{ endPoint }}/{{ gigId }}/reviews HTTP/1.1

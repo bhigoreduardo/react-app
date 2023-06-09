@@ -1,20 +1,38 @@
-import { useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
-import { gigs } from "../../utils/data";
+import api from "../../libs/api";
 import GigCard from "./GigCard";
 import "./Gigs.style.scss";
 
 function Gigs() {
+  const { search } = useLocation();
+  const location = useLocation();
+  console.log(location);
   const [sort, setSort] = useState("sales");
   const [open, setOpen] = useState(false);
   const minRef = useRef();
   const maxRef = useRef();
 
-  const apply = () => {};
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ["gigs"],
+    queryFn: () =>
+      api
+        .get(
+          `/gigs?${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
+        )
+        .then((res) => res.data),
+  });
+  const apply = () => refetch();
   const reSort = (type) => {
     setSort(type);
     setOpen(false);
   };
+
+  useEffect(() => {
+    refetch();
+  }, [sort]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section className="gigs">
@@ -50,11 +68,18 @@ function Gigs() {
             )}
           </div>
         </div>
-
-        <div className="cards">
-          {gigs?.length > 0 &&
-            gigs.map((item) => <GigCard key={item.id} item={item} />)}
-        </div>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          <div className="cards">
+            {data?.length > 0 &&
+              data.map((item) => <GigCard key={item._id} item={item} />)}
+            {/* {gigs?.length > 0 &&
+            gigs.map((item) => <GigCard key={item.id} item={item} />)} */}
+          </div>
+        )}
       </div>
     </section>
   );
