@@ -21,11 +21,6 @@ function GigsPortfolio() {
   const handleDelete = async (id) => {
     mutation.mutate(id);
   };
-  // const currentUser = {
-  //   id: 1,
-  //   username: "Anna",
-  //   isSeller: true,
-  // };
 
   return (
     <div className="myGigs">
