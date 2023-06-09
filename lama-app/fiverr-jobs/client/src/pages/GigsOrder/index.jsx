@@ -1,18 +1,41 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 import { UserContext } from "../../contexts/UserContext";
-import "./GigsOrder.style.scss";
-import { useQuery } from "@tanstack/react-query";
 import api from "../../libs/api";
+import "./GigsOrder.style.scss";
 
 const GigsOrder = () => {
   const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () => api.get("/orders").then((res) => res.data),
   });
+  const handleMessage = async (order) => {
+    const sellerId = order.sellerId;
+    const buyerId = order.buyerId;
+
+    try {
+      const { data } = await api.post("/conversations/messages", {
+        sellerId,
+        buyerId,
+      });
+      navigate(`/messages/${data._id}`);
+    } catch (error) {
+      console.log(error);
+      if (error.response.status === 404) {
+        const { data } = api.post("/conversations", {
+          to: currentUser.isSeller ? buyerId : sellerId,
+          sellerName: order.sellerName,
+          buyerName: order.buyerName,
+        });
+        navigate(`/messages/${data._id}`);
+      }
+    }
+  };
 
   return (
     <div className="orders">
@@ -60,6 +83,7 @@ const GigsOrder = () => {
                       className="message"
                       src="./img/message.png"
                       alt="Message"
+                      onClick={() => handleMessage(item)}
                     />
                   </td>
                 </tr>

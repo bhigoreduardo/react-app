@@ -63,6 +63,9 @@ function Navbar() {
                       <Link className="link" to="/create-gig">
                         Add New Gig
                       </Link>
+                      <Link className="link" to="/my-gigs">
+                        Porfolio
+                      </Link>
                     </>
                   )}
                   <Link className="link" to="/gigs">
