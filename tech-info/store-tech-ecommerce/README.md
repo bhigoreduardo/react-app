@@ -1,5 +1,8 @@
 # :desktop_computer: Store Tech Application
 
+<img src="./assets/cover.png" alt="Cover projeto" />
+<p align="center"><img src="./assets/cover.gif" alt="Cover projeto" /><p>
+
 ## :briefcase: Stacks
 
 ✅ JavaScript
@@ -18,8 +21,8 @@
 
 ## :fire: Run
 
-- Dev Server: `yarn start`
-- Dev Client (Port 5173): `yarn run dev`
+- Dev Server (Port 3001): `yarn server`
+- Dev Client (Port 3000): `yarn dev`
 
 ## :baby: Created
 
@@ -33,13 +36,17 @@
 
 ## :triangular_flag_on_post: Environment Variables
 
-*Server:*
+### Server Variables
 
 - Api Port: `API_PORT`
 - MongoDB (Database): `DATABASE_URL`
 - Secret JWT: `JWT_SECRET`
 
-*Client:*
+- Braintree Merchant ID : `PAYMENT_MERCHANT_ID`
+- Braintree Prublic Key: `PAYMENT_PUBLIC_KEY`
+- Braintree Private Key: `PAYMENT_PRIVATE_KEY`
+
+### Client Variables
 
 - Api Url (API): `VITE_API_URL`
 
