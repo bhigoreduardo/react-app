@@ -24,6 +24,11 @@ function App() {
           <Route path="admin/users" element={<Pages.Admin.Users />} />
         </Route>
 
+        <Route path="/dashboard" element={<RouteWrapper.Auth />}>
+          <Route path="auth" element={<Pages.Auth.Dashboard />} />
+          <Route path="auth/orders" element={<Pages.Auth.Orders />} />
+        </Route>
+
         <Route path="/*" element={<Pages.Public.NotFound />} />
       </Routes>
     </Router>
