@@ -1,0 +1,45 @@
+@server = http://localhost:3001
+@endPoint = users
+
+### POST /register
+POST {{ server }}/{{ endPoint }}/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Fake admin",
+    "email": "fakeadmin@email.com",
+    "password": "fakepass",
+    "phone": "00123456798",
+    "address": "Main St. 193",
+    "role": "administrator"
+}
+
+### POST /login
+POST {{ server }}/{{ endPoint }}/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "fakeadmin@email.com",
+    "password": "fakepass"
+}
+
+### PUT /
+PUT {{ server }}/{{ endPoint }} HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzZTZlZmE3MzViY2M1MTVjNzYyMDYiLCJpYXQiOjE2ODYzNjU5NDYsImV4cCI6MTY4Njk3MDc0Nn0.RNn6xOaTL3bpWY5kdcQyJaQXU0yyWvrWYFxcmXr97eU
+
+{
+    "name": "Fake name updated",
+    "password": "fakepass",
+    "phone": "00123456798",
+    "address": "Main St. 1930"
+}
+
+### PUT /reset-password
+PUT {{ server }}/{{ endPoint }}/reset-password HTTP/1.1
+content-type: application/json
+
+{
+    "email": "fakeuser@email.com",
+    "newPassword": "fakepass"
+}
