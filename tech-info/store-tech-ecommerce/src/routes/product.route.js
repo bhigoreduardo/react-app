@@ -14,7 +14,7 @@ router.post(
   "/register",
   use(authValidation.requireSignIn),
   use(authValidation.requireAdministrator),
-  validate(productValidation.registerValidation),
+  // validate(productValidation.registerValidation),
   formidable(),
   use(productController.register)
 );
@@ -22,7 +22,7 @@ router.put(
   "/:id",
   use(authValidation.requireSignIn),
   use(authValidation.requireAdministrator),
-  validate(productValidation.updatedValidation),
+  // validate(productValidation.updatedValidation),
   formidable(),
   use(productController.update)
 );
