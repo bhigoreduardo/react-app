@@ -29,7 +29,7 @@
 ## :ok_man: Dependencies
 
 - Server Dependencies: `yarn add bcrypt braintree colors concurrently cors dotenv express express-formidable express-validation jsonwebtoken mongoose morgan nodemon slugify`
-- Client Dependencies: `yarn add axios react-icons react-router-dom react-helmet braintree-web-drop-in-react`
+- Client Dependencies: `yarn add axios braintree-web-drop-in-react react react-dom react-helmet react-hot-toast react-router-dom`
 
 ## :triangular_flag_on_post: Environment Variables
 
