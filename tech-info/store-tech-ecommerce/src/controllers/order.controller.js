@@ -1,24 +1,24 @@
-// import braintree from "braintree";
-// import dotenv from "dotenv";
+import braintree from "braintree";
+import dotenv from "dotenv";
 
 import Order from "../models/order.model.js";
 
-// dotenv.config();
+dotenv.config();
 
-// const gateway = new braintree.BraintreeGateway({
-//   environment: braintree.Environment.Sandbox,
-//   merchantId: process.env.PAYMENT_MERCHANT_ID,
-//   publicKey: process.env.PAYMENT_PUBLIC_KEY,
-//   privateKey: process.env.PAYMENT_PRIVATE_KEY,
-// });
+const gateway = new braintree.BraintreeGateway({
+  environment: braintree.Environment.Sandbox,
+  merchantId: process.env.PAYMENT_MERCHANT_ID,
+  publicKey: process.env.PAYMENT_PUBLIC_KEY,
+  privateKey: process.env.PAYMENT_PRIVATE_KEY,
+});
 
-// export const generatePaymentToken = async (req, res) => {
-//   gateway.clientToken.generate({}, (err, response) => {
-//     if (err) throw new Error("Request failed, try again");
+export const generatePaymentToken = async (req, res) => {
+  gateway.clientToken.generate({}, (err, response) => {
+    if (err) throw new Error("Request failed, try again");
 
-//     return res.status(200).json(response.clientToken);
-//   });
-// };
+    return res.status(200).json(response.clientToken);
+  });
+};
 
 export const paymentCheckout = async (req, res) => {
   const { nonce, cart } = req.body;
