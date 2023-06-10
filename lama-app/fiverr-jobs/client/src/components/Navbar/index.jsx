@@ -47,7 +47,7 @@ function Navbar() {
         </div>
 
         <div className="links">
-          <span>Liverr Business</span>
+          <span>Fiverr Business</span>
           <span>Explore</span>
           <span>English</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}

@@ -41,7 +41,7 @@ function Review({ review, mutation }) {
               </div>
             </div>
           </div>
-          {review.userId === currentUser._id && (
+          {currentUser && review.userId === currentUser._id && (
             <button type="button" onClick={handleDelete}>
               Delete
             </button>
