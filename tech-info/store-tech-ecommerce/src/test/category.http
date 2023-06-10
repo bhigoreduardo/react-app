@@ -1,0 +1,35 @@
+@server = http://localhost:3001
+@endPoint = categories
+@categoryId = 6483e910b3f30ce3aa4eb481
+@slug = name
+
+### POST /register
+POST {{ server }}/{{ endPoint }}/register HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzZTgyN2E1M2I4MjVhZTAxYTUzMmEiLCJpYXQiOjE2ODYzNjY0NjgsImV4cCI6MTY4Njk3MTI2OH0.Ir-55kXzHN7reJkbRsB38rIi2r9aslQTrJHWhefowMI
+
+{
+    "name": "Fake"
+}
+
+### PUT /:id
+PUT {{ server }}/{{ endPoint }}/{{ categoryId }} HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzZTgyN2E1M2I4MjVhZTAxYTUzMmEiLCJpYXQiOjE2ODYzNjY0NjgsImV4cCI6MTY4Njk3MTI2OH0.Ir-55kXzHN7reJkbRsB38rIi2r9aslQTrJHWhefowMI
+
+{
+    "name": "name"
+}
+
+### GET /
+GET {{ server }}/{{ endPoint }} HTTP/1.1
+
+### GET /:slug
+GET {{ server }}/{{ endPoint }}/{{ slug }} HTTP/1.1
+
+### DELETE /:id
+DELETE {{ server }}/{{ endPoint }}/{{ categoryId }} HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgzZTgyN2E1M2I4MjVhZTAxYTUzMmEiLCJpYXQiOjE2ODYzNjY0NjgsImV4cCI6MTY4Njk3MTI2OH0.Ir-55kXzHN7reJkbRsB38rIi2r9aslQTrJHWhefowMI
+
+### GET /:slug/products
+GET {{ server }}/{{ endPoint }}/{{ slug }}/products HTTP/1.1
