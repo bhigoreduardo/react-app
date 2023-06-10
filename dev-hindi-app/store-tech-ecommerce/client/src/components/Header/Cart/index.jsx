@@ -13,7 +13,7 @@ import "./Cart.style.scss";
 
 function Cart({ setShowCart }) {
   const { cartItems } = useContext(Context);
-  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHED_KEY);
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
   const handlePayment = async () => {
     try {
