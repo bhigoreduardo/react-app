@@ -1,2 +1,9 @@
 export { default as Home } from "./Home";
 export { default as Login } from "./Login";
+export { default as Product } from "./Product";
+export { default as Categories } from "./Categories";
+export { default as ProductsCategory } from "./ProductsCategory";
+export { default as Search } from "./Search";
+export { default as Cart } from "./Cart";
+export { default as ForgotPassword } from "./ForgotPassword";
+export { default as NotFound } from "./NotFound";
