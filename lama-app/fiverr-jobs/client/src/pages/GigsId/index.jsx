@@ -187,7 +187,7 @@ function GigId() {
                 ))}
             </div>
 
-            {!currentUser.isSeller && (
+            {!currentUser || !currentUser.isSeller && (
               <Link to={`/payment/${id}`} className="link">
                 Continue
               </Link>
