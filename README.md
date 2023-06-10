@@ -1,5 +1,13 @@
 # :desktop_computer: Next Application
 
+## Lama Dev
+
+- Fiverr Jobs
+
+## Tech Info
+
+- Store Tech
+
 ## :unicorn: Author
 
 <table>
