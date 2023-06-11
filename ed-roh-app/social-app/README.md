@@ -1,0 +1,1 @@
+- Server Dependencies: `yarn add bcrypt body-parser cors dotenv express gridfs-stream helmet jsonwebtoken mongoose morgan multer multer-gridfs-storage nodemon`

@@ -1,0 +1,27 @@
+@server = http://localhost:3001
+@endPoint = posts
+@userId = 64851bbd78a7007cfe43bae7
+@postId = 648525dfda8ae36882c87f25
+
+### POST /
+POST {{ server }}/{{ endPoint }} HTTP/1.1
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODUxYmJkNzhhNzAwN2NmZTQzYmFlNyIsImlhdCI6MTY4NjQ0NjcwOX0.QjgORZ6COGJn3OOpk4ECTmgzWqOCdv9_5IFrkGdvzl0"
+
+{
+  "userId": "64851bbd78a7007cfe43bae7",
+  "firstName": "First",
+  "lastName": "Last"
+}
+
+### GET /
+GET {{ server }}/{{ endPoint }} HTTP/1.1
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODUxYmJkNzhhNzAwN2NmZTQzYmFlNyIsImlhdCI6MTY4NjQ0NjcwOX0.QjgORZ6COGJn3OOpk4ECTmgzWqOCdv9_5IFrkGdvzl0"
+
+### GET /:userId
+GET {{ server }}/{{ endPoint }}/{{ userId }} HTTP/1.1
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODUxYmJkNzhhNzAwN2NmZTQzYmFlNyIsImlhdCI6MTY4NjQ0NjcwOX0.QjgORZ6COGJn3OOpk4ECTmgzWqOCdv9_5IFrkGdvzl0"
+
+### PATCH /:id/like
+PATCH {{ server }}/{{ endPoint }}/{{ postId }}/like HTTP/1.1
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODUxYmJkNzhhNzAwN2NmZTQzYmFlNyIsImlhdCI6MTY4NjQ0NjcwOX0.QjgORZ6COGJn3OOpk4ECTmgzWqOCdv9_5IFrkGdvzl0"
