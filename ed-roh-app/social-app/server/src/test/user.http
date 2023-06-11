@@ -1,0 +1,16 @@
+@server = http://localhost:3001
+@endPoint = users
+@userId = 64851bbd78a7007cfe43bae7
+@friendId = 6485226ad9d5302bace61bfe
+
+### GET /:id
+GET {{ server }}/{{ endPoint }}/{{ userId }} HTTP/1.1
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODUxYmJkNzhhNzAwN2NmZTQzYmFlNyIsImlhdCI6MTY4NjQ0NjcwOX0.QjgORZ6COGJn3OOpk4ECTmgzWqOCdv9_5IFrkGdvzl0"
+
+### GET /:id/friends
+GET {{ server }}/{{ endPoint }}/{{ userId }}/friends HTTP/1.1
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODUxYmJkNzhhNzAwN2NmZTQzYmFlNyIsImlhdCI6MTY4NjQ0NTA5NH0.686QzNZQfEoLnJnngRhavYNnoz0MPFS6QKb-LFp9lk8"
+
+### PATCH /:id/:friendId
+PATCH {{ server }}/{{ endPoint }}/{{ userId }}/{{ friendId }} HTTP/1.1
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODUxYmJkNzhhNzAwN2NmZTQzYmFlNyIsImlhdCI6MTY4NjQ0NTA5NH0.686QzNZQfEoLnJnngRhavYNnoz0MPFS6QKb-LFp9lk8"
