@@ -1,0 +1,28 @@
+@server = http://localhost:3000
+@endPoint = schedules
+@scheduleId = b2185113-3b7a-4b2f-b935-bfe32765e3f0
+
+### POST /
+POST {{ server }}/{{ endPoint }} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5ld2Zha2VlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE2ODU4OTY3NDAsImV4cCI6MTY4NTg5NzY0MCwic3ViIjoiYTE1YjFhNzMtY2U3NS00ZmI1LTkwNDktZGQ4ZGU3ZDk3MTQ1In0.WMQB2nHLeg2r_o37_c5CpldWyBmzE6oAVWUj7_pzfhY
+
+{
+  "name": "Fake name",
+  "phone": "Fake name",
+  "date": "2023-06-18T18:39:05.409Z"
+}
+
+### GET /
+GET {{ server }}/{{ endPoint }}?date=2023-06-18 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5ld2Zha2VlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE2ODU4OTY3NDAsImV4cCI6MTY4NTg5NzY0MCwic3ViIjoiYTE1YjFhNzMtY2U3NS00ZmI1LTkwNDktZGQ4ZGU3ZDk3MTQ1In0.WMQB2nHLeg2r_o37_c5CpldWyBmzE6oAVWUj7_pzfhY
+
+
+### PUT /:id
+PUT {{ server }}/{{ endPoint }}/{{ scheduleId }} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5ld2Zha2VlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE2ODU4OTY3NDAsImV4cCI6MTY4NTg5NzY0MCwic3ViIjoiYTE1YjFhNzMtY2U3NS00ZmI1LTkwNDktZGQ4ZGU3ZDk3MTQ1In0.WMQB2nHLeg2r_o37_c5CpldWyBmzE6oAVWUj7_pzfhY
+
+{
+  "date": "2023-06-18T19:39:05.409Z"
+}
