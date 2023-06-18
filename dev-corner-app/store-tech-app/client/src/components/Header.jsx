@@ -5,13 +5,13 @@ const Header = () => {
   return (
     <header>
       <div className="header-top py-3">
-        <div className="container-xxl">
+        <div className="container-xxl mx-auto">
           <div className="row text-white">
-            <p className="col-6 mb-0">
+            <p className="col-md-6 col-12 text-md-start text-center mb-0">
               Frete grátis em compras acima de R$100
             </p>
 
-            <p className="col-6 text-end mb-0">
+            <p className="col-md-6 col-12 text-md-end text-center mb-0">
               WhatsApp:&nbsp;
               <a className="text-white" href="tel:(11) 9 9999-9999">
                 (11) 9 9999-9999
@@ -22,10 +22,10 @@ const Header = () => {
       </div>
 
       <div className="header-middle py-3">
-        <div className="container-xxl">
+        <div className="container-xxl mx-auto">
           <div className="row align-items-center justify-content-between gap-2">
             <Link className="col-1 d-none d-lg-block text-white">Início</Link>
-            {/*   */}
+
             <div className="col-sm-5 d-flex align-items-center gap-2 search">
               <input type="text" placeholder="Pesquisar..." className="form-control py-2" />
               <BsSearch className="fs-6" />
@@ -52,28 +52,26 @@ const Header = () => {
       </div>
 
       <div className="header-bottom py-3">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12 d-flex align-items-center gap-3">
-              <div className="dropdown">
-                <button type="button" data-bs-toggle="dropdown" id="shopCategories" aria-expanded="false" className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-1 d-flex align-items-center">
-                  <img src="/icons/menu.svg" alt="Categorias" />
-                  <span className="me-5 d-inline-block">Categorias</span>
-                </button>
+        <div className="container-xxl mx-auto">
+          <div className="d-flex align-items-center gap-3">
+            <div className="dropdown">
+              <button type="button" data-bs-toggle="dropdown" id="shopCategories" aria-expanded="false" className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-1 d-flex align-items-center">
+                <img src="/icons/menu.svg" alt="Categorias" />
+                <span className="me-5 d-inline-block">Categorias</span>
+              </button>
 
-                <div className="dropdown-menu" aria-labelledby="shopCategories">
-                  <Link className="dropdown-item text-white" to="">Apple</Link>
-                  <Link className="dropdown-item text-white" to="">Samsung</Link>
-                  <Link className="dropdown-item text-white" to="">Smart Watch</Link>
-                </div>
+              <div className="dropdown-menu" aria-labelledby="shopCategories">
+                <Link className="dropdown-item text-white" to="">Apple</Link>
+                <Link className="dropdown-item text-white" to="">Samsung</Link>
+                <Link className="dropdown-item text-white" to="">Smart Watch</Link>
               </div>
+            </div>
 
-              <div className="d-sm-flex d-none align-items-center gap-2 links">
-                <NavLink to="/">Início</NavLink>
-                <NavLink to="/produtos">Loja</NavLink>
-                <NavLink to="/blogs">Blogs</NavLink>
-                <NavLink to="/contacto">Contacto</NavLink>
-              </div>
+            <div className="d-sm-flex d-none align-items-center gap-2 links">
+              <NavLink to="/">Início</NavLink>
+              <NavLink to="/produtos">Loja</NavLink>
+              <NavLink to="/blogs">Blogs</NavLink>
+              <NavLink to="/contacto">Contacto</NavLink>
             </div>
           </div>
         </div>
