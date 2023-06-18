@@ -1,26 +1,26 @@
 export const services = [
   {
-    image: "/images/service.png",
+    image: "/icons/delivery.png",
     title: "Entregas",
     tagline: "delivery",
   },
   {
-    image: "/images/service-02.png",
+    image: "/icons/gift.png",
     title: "Presentes",
     tagline: "gift",
   },
   {
-    image: "/images/service-03.png",
+    image: "/icons/call-center.png",
     title: "Atendimento 24/7",
     tagline: "Call center",
   },
   {
-    image: "/images/service-04.png",
+    image: "/icons/offers.png",
     title: "Ofertas",
     tagline: "Descontos",
   },
   {
-    image: "/images/service-05.png",
+    image: "/icons/credit-card.png",
     title: "Pagamentos",
     tagline: "Bancário",
   }
@@ -28,22 +28,22 @@ export const services = [
 export const categories = [
   {
     title: "Jogos & Música",
-    image: "images/games.png",
+    image: "images/category-1.png",
     count: "10",
   },
   {
     title: "Câmeras",
-    image: "images/camera.avif",
+    image: "images/category-2.avif",
     count: "10",
   },
   {
     title: "Smart TVs",
-    image: "images/tv.webp",
+    image: "images/category-3.webp",
     count: "10",
   },
   {
     title: "Headphones",
-    image: "images/headphone.webp",
+    image: "images/category-4.webp",
     count: "10",
   }
 ];
@@ -126,54 +126,58 @@ export const products = [
 export const brands = [
   {
     title: "Apple",
-    image: "/images/brand-01.png",
+    image: "/images/brand-1.png",
   },
   {
-    title: "Apple",
-    image: "/images/brand-02.png",
+    title: "Bose",
+    image: "/images/brand-2.png",
   },
   {
-    title: "Apple",
-    image: "/images/brand-03.png",
+    title: "Cannon",
+    image: "/images/brand-3.png",
   },
   {
-    title: "Apple",
-    image: "/images/brand-04.png",
+    title: "Dell",
+    image: "/images/brand-4.png",
   },
   {
-    title: "Apple",
-    image: "/images/brand-05.png",
+    title: "Intel",
+    image: "/images/brand-5.png",
   },
   {
-    title: "Apple",
-    image: "/images/brand-06.png",
+    title: "LG",
+    image: "/images/brand-6.png",
   },
   {
-    title: "Apple",
-    image: "/images/brand-07.png",
+    title: "Samsung",
+    image: "/images/brand-7.png",
+  },
+  {
+    title: "San Disk",
+    image: "/images/brand-8.png",
   },
 ];
 export const blogs = [
   {
-    image: "/images/blog-1.jpg",
+    image: "/posts/blog.jpg",
     title: "A beautiful sunday morning renaissance",
     createdAt: "1 Dezembro 2022",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quaerat accusamus officia",
   },
   {
-    image: "/images/blog-1.jpg",
+    image: "/posts/blog.jpg",
     title: "A beautiful sunday morning renaissance",
     createdAt: "1 Dezembro 2022",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quaerat accusamus officia",
   },
   {
-    image: "/images/blog-1.jpg",
+    image: "/posts/blog.jpg",
     title: "A beautiful sunday morning renaissance",
     createdAt: "1 Dezembro 2022",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quaerat accusamus officia",
   },
   {
-    image: "/images/blog-1.jpg",
+    image: "/posts/blog.jpg",
     title: "A beautiful sunday morning renaissance",
     createdAt: "1 Dezembro 2022",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quaerat accusamus officia",
