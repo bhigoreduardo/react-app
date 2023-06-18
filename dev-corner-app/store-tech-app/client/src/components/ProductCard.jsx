@@ -4,28 +4,28 @@ import ReactStars from "react-rating-stars-component";
 
 const ProductCard = ({ title, cover, thumbnail, brand, grid, description, price, stars }) => {
   return (
-    <div className="product-card position-relative">
+    <div className={`product-card position-relative ${grid === 12 && "d-flex align-item-center justify-content-center"}`}>
       <div className="wishlist-icon position-absolute">
         <button className="border-0 bg-transparent">
           <img src="/icons/wish.svg" alt="Favorito" />
         </button>
       </div>
-
+      
       <Link to="/" className="product-image">
         <img src={cover} className="img-fluid" alt={title} />
         <img src={thumbnail} className="img-fluid" alt={title} />
       </Link>
 
-      <div className="product-details">
+      <div className="product-details col-8 h-100">
         <h6 className="brand">{brand}</h6>
         <h5 className="product-title">
           {title}
         </h5>
         <ReactStars count={5} size={24} value={stars} edit={false} activeColor="#ffd700" />
+        <p className="price">{price}</p>
         <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
           {description}
         </p>
-        <p className="price">{price}</p>
       </div>
 
       <div className="action-bar position-absolute">
