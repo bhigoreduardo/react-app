@@ -26,6 +26,20 @@ a {
   display: inline-block;
 }
 
+.colors {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.colors li {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
 .button {
   background-color: var(--color-232f3e);
   color: #fff;

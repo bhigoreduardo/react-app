@@ -84,10 +84,17 @@ const Product = () => {
                   <div className="d-flex flex-wrap gap-2">
                     {products[0].colors?.length > 0 &&
                       products[0].colors.map((item, i) => (
-                        <span key={i} className="badge border border-1 bg-white text-dark border-secondary">{item}</span>
+                        <span key={i} className="badge border border-1 bg-white text-dark border-secondary">{item.title}</span>
                       ))
                     }
                   </div>
+                  {products[0].colors?.length > 0 && (
+                    <ul className="colors ps-0">
+                      {products[0].colors.map((item, i) => (
+                        <li title={item.title} key={i} style={{ background: item.hex }}></li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
                 <div className="d-xl-flex d-block align-items-center gap-2 flex-row mt-2 mb-3">
                   <div className="d-flex gap-1 align-items-center mb-xl-0 mb-2">
