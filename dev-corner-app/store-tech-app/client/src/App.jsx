@@ -7,6 +7,8 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Compare from "./pages/Compare";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
           <Route path="/carrinho" element={<Cart />} />
           <Route path="/finalizar-compra" element={<Checkout />} />
           <Route path="/comparar" element={<Compare />} />
+          <Route path="/login" element={<SignIn />} />
+          <Route path="/cadastro" element={<SignUp />} />
         </Route>
       </Routes>
     </Router>
