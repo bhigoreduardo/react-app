@@ -75,8 +75,8 @@ export const famous = [
 ];
 export const products = [
   {
-    cover: "/products/cover-watch.avif",
-    thumbnail: "/products/thumbnail-watch.jpg",
+    cover: "/products/cover-watch.webp",
+    thumbnail: "/products/thumbnail-watch.webp",
     brand: "Apple",
     title: "Smart Watch Pro 14 Plus Max",
     description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt",
@@ -85,6 +85,10 @@ export const products = [
     countdown: "5",
     stock: 20,
     stars: 4,
+    category: "Smart Watch",
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Branco", "Preto", "Vermelho", "Azul"],
+    shippingPolicy: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt",
   },
   {
     cover: "/products/cover-watch.avif",
