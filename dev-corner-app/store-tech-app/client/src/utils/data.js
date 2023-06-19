@@ -87,7 +87,23 @@ export const products = [
     stars: 4,
     category: "Smart Watch",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Branco", "Preto", "Vermelho", "Azul"],
+    colors: [
+      {
+        title: "Branco",
+        hex:"#fff",
+      },
+      {
+        title: "Preto",
+        hex: "#000",
+      },
+      {
+        title: "Vermelho",
+        hex: "#ff0000",
+      },{
+        title: "Azul",
+        hex: "#00FFFF",
+      },
+    ],
     shippingPolicy: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt",
   },
   {
