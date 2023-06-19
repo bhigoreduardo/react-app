@@ -186,3 +186,9 @@ product-card p.description {
   padding: 10px 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+/* WISHLIST CARD */
+.wishlist-icon {
+  top: 2%;
+  right: 15px;
+}
