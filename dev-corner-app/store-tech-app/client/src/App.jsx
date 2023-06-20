@@ -12,6 +12,8 @@ import SignUp from "./pages/SignUp";
 import Wishlist from "./pages/Wishlist";
 import Blogs from "./pages/Blogs";
 import Blog from "./pages/Blog";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 const App = () => {
   return (
@@ -29,6 +31,8 @@ const App = () => {
           <Route path="/favoritos" element={<Wishlist />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/recuperar-senha" element={<ForgotPassword />} />
+          <Route path="/redefinir-senha" element={<ResetPassword />} />
         </Route>
       </Routes>
     </Router>
