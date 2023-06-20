@@ -10,6 +10,8 @@ import Compare from "./pages/Compare";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Wishlist from "./pages/Wishlist";
+import Blogs from "./pages/Blogs";
+import Blog from "./pages/Blog";
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
           <Route path="/login" element={<SignIn />} />
           <Route path="/cadastro" element={<SignUp />} />
           <Route path="/favoritos" element={<Wishlist />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog" element={<Blog />} />
         </Route>
       </Routes>
     </Router>
