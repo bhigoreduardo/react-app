@@ -68,7 +68,5 @@
   width: 40%;
   object-fit: cover;
 }
-/* 
-.home-famous .famous-card:first-of-type .famous-content h5,
-.home-famous .famous-card:first-of-type .famous-content h6,
-.home-famous .famous-card:first-of-type .famous-content p { color: #fff; } */
+
+.home-famous > div > div > div:first-of-type { color: #fff; }

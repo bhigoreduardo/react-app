@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const FamousCard = ({ image, title, details, price }) => {
   return (
@@ -7,6 +9,7 @@ const FamousCard = ({ image, title, details, price }) => {
         <h5>{title}</h5>
         <h6>{details}</h6>
         <p>{price}</p>
+        <Link className="button">Comprar agora</Link>
       </div>
     </div>
   );

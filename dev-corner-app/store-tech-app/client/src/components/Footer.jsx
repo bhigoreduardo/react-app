@@ -7,12 +7,12 @@ const Footer = () => {
       <div className="container-xxl row align-items-center gap-md-0 gap-2 justify-content-between px-0 py-4 mx-auto">
         <div className="col-md-5 col-12 d-flex gap-3 align-items-center justify-content-md-start justify-content-center">
           <img src="/icons/newsletter.png" alt="Notícias" />
-          <h2 className="mb-0 text-white">Assinar notícias</h2>
+          <h2 className="mb-0 text-white">Receber promoções</h2>
         </div>
 
         <div className="col-md-7 col-12 d-flex gap-2">
           <input type="text" className="form-control py-1" placeholder="Insira seu email" aria-label="Insira seu email" />
-          <button type="button" className="input-group-text p-2">Assinar</button>
+          <button type="button" className="input-group-text p-2">Cadastrar</button>
         </div>
       </div>
 
