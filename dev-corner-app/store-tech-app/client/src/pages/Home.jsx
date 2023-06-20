@@ -16,11 +16,11 @@ const Home = () => {
         <div className="d-flex flex-wrap align-items-center justify-content-between">
           <div className="col-md-6 col-12 p-2">
             <div className="main-banner position-relative">
-              <img src="/images/banner.jpg" className="img-fluid rounded-3" alt="Banner" />
+              <img src="/images/banner.jpg" className="img-fluid" alt="Banner" />
               <div className="main-banner-content position-absolute">
-                <h4>SUPERCHARGED FOR PROS.</h4>
+                <h4>Lançamento última geração</h4>
                 <h5>iPad S13+ Pro.</h5>
-                <p>De R$999.00 por R$41.62/mês.</p>
+                <p>De <s>R$999.00</s> por R$41.62/mês.</p>
                 <Link className="button">Comprar agora</Link>
               </div>
             </div>
@@ -28,41 +28,41 @@ const Home = () => {
 
           <div className="col-md-6 col-12">
             <div className="d-flex flex-wrap justify-content-between align-items-center">
-              <div className="col-6 small-banner position-relative p-2">
-                <img src="images/small-banner-1.jpg" className="img-fluid rounded-3" alt="Banner" />
+              <Link to="/" className="text-dark col-6 small-banner position-relative p-2">
+                <img src="images/small-banner-1.jpg" className="img-fluid" alt="Banner" />
                 <div className="small-banner-content position-absolute">
-                  <h4>Best Sake</h4>
+                  <h4>Melhor oferta</h4>
                   <h5>iPad S13+ Pro.</h5>
                   <p className="d-none d-sm-block">Apenas R$41.62/mês</p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="col-6 small-banner position-relative p-2">
-                <img src="images/small-banner-2.jpg" className="img-fluid rounded-3" alt="Banner" />
+              <Link to="/" className="text-dark col-6 small-banner position-relative p-2">
+                <img src="images/small-banner-2.jpg" className="img-fluid" alt="Banner" />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h4>Novos</h4>
+                  <h5>Smart Pad Air</h5>
                   <p className="d-none d-sm-block">Apenas $41.62/mês</p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="col-6 small-banner position-relative p-2">
-                <img src="images/small-banner-3.jpg" className="img-fluid rounded-3" alt="Banner" />
+              <Link to="/" className="text-dark col-6 small-banner position-relative p-2">
+                <img src="images/small-banner-3.jpg" className="img-fluid" alt="Banner" />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h4>Ultra rápidos</h4>
+                  <h5>Tablet IPad Air</h5>
                   <p className="d-none d-sm-block">Apenas $41.62/mês</p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="col-6 small-banner position-relative p-2">
-                <img src="images/small-banner-4.jpg" className="img-fluid rounded-3" alt="Banner" />
+              <Link to="/" className="text-dark col-6 small-banner position-relative p-2">
+                <img src="images/small-banner-4.jpg" className="img-fluid" alt="Banner" />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h4>Tecnológico</h4>
+                  <h5>Headphone Air</h5>
                   <p className="d-none d-sm-block">Apenas R$41.62/mês</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -87,13 +87,13 @@ const Home = () => {
         <div className="categories d-flex flex-wrap gap-4 align-items-center justify-content-center">
           {categories?.map((item, i) => {
             return (
-              <div key={i} className="d-flex col-lg-2 col-md-4 col-sm-6 col-12 gap-2 align-items-center">
+              <Link to={`/categorias/${item.url}`} key={i} className="text-dark d-flex col-lg-2 col-md-4 col-sm-6 col-12 gap-2 align-items-center">
                 <div>
                   <h6>{item.title}</h6>
                   <p>{item.count} Items</p>
                 </div>
                 <img src={item.image} alt={item.title} />
-              </div>
+              </Link>
             );
           })}
         </div>

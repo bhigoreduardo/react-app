@@ -2,7 +2,9 @@
 import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 
-const ProductCard = ({ title, cover, thumbnail, brand, grid, description, price, stars }) => {
+import { currencyPrice } from "../utils/format";
+
+const ProductCard = ({ title, slug, cover, thumbnail, brand, grid, description, price, stars }) => {
   return (
     <div className={`product-card position-relative ${grid === 12 && "d-flex align-item-center justify-content-center"}`}>
       <div className="wishlist-icon position-absolute">
@@ -11,7 +13,7 @@ const ProductCard = ({ title, cover, thumbnail, brand, grid, description, price,
         </button>
       </div>
       
-      <Link to="/" className="product-image">
+      <Link to={`/produtos/${slug}`} className="product-image">
         <img src={cover} className="img-fluid" alt={title} />
         <img src={thumbnail} className="img-fluid" alt={title} />
       </Link>
@@ -22,7 +24,7 @@ const ProductCard = ({ title, cover, thumbnail, brand, grid, description, price,
           {title}
         </h5>
         <ReactStars count={5} size={24} value={stars} edit={false} activeColor="#ffd700" />
-        <p className="price">{price}</p>
+        <p className="price">{currencyPrice.format(price)}</p>
         <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
           {description}
         </p>

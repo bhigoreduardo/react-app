@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 
+import { categories } from "../utils/data";
+
 const Header = () => {
   return (
     <header>
@@ -24,26 +26,26 @@ const Header = () => {
       <div className="header-middle py-3">
         <div className="container-xxl mx-auto">
           <div className="row align-items-center justify-content-between gap-2">
-            <Link className="col-1 d-none d-lg-block text-white">Início</Link>
+            <Link to="/" className="col-1 d-none d-lg-block text-white">Início</Link>
 
             <div className="col-sm-5 d-flex align-items-center gap-2 search">
-              <input type="text" placeholder="Pesquisar..." className="form-control py-2" />
-              <BsSearch className="fs-6" />
+              <input type="text" placeholder="Pesquisar..." className="form-control border-0 rounded-0 py-2" />
+              <BsSearch className="fs-6 text-white" role="button" />
             </div>
 
-            <div className="col-lg-5 col-sm-6 d-flex align-items-center justify-content-between links">
-              <Link to="/compare-product" className="d-flex align-items-center gap-1 text-white">
-                <img src="/icons/compare.svg" alt="compare" />
-                <p className="mb-0">Comparar<br />produtos</p>
+            <div className="col-lg-5 col-sm-6 d-flex align-items-center gap-3 justify-content-end links">
+              <Link to="/comparar" className="d-flex align-items-center gap-1 text-white">
+                <img src="/icons/compare.svg" alt="Comparar produtos" />
+                <p className="mb-0">Comparar produtos</p>
               </Link>
 
-              <Link to="/wishlist" className="d-flex align-items-center gap-1 text-white">
-                <img src="/icons/wishlist.svg" alt="wishlist" />
+              <Link to="/favoritos" className="d-flex align-items-center gap-1 text-white">
+                <img src="/icons/wishlist.svg" alt="Favoritos" />
                 <p className="mb-0">Favoritos</p>
               </Link>
 
               <Link to="/login" className="d-flex align-items-center gap-1 text-white">
-                <img src="/icons/user.svg" alt="user" />
+                <img src="/icons/user.svg" alt="Conta" />
                 <p className="mb-0">Conta</p>
               </Link>
             </div>
@@ -61,17 +63,19 @@ const Header = () => {
               </button>
 
               <div className="dropdown-menu" aria-labelledby="shopCategories">
-                <Link className="dropdown-item text-white" to="">Apple</Link>
-                <Link className="dropdown-item text-white" to="">Samsung</Link>
-                <Link className="dropdown-item text-white" to="">Smart Watch</Link>
+                {categories?.length > 0 &&
+                  categories.map((item, i) => (
+                    <Link key={i} className="dropdown-item text-white" to={`/categorias/${item.url}`}>{item.title}</Link>
+                  ))
+                }
               </div>
             </div>
 
             <div className="d-sm-flex d-none align-items-center gap-2 links">
               <NavLink to="/">Início</NavLink>
-              <NavLink to="/produtos">Loja</NavLink>
+              <NavLink to="/loja">Loja</NavLink>
               <NavLink to="/blogs">Blogs</NavLink>
-              <NavLink to="/contacto">Contacto</NavLink>
+              <NavLink to="/contato">Contato</NavLink>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const BlogCard = ({ image, title, createdAt, description }) => {
+const BlogCard = ({ image, title, slug, createdAt, description }) => {
   return (
     <div className="blog-card">
       <div className="card-image">
@@ -12,7 +12,7 @@ const BlogCard = ({ image, title, createdAt, description }) => {
         <p className="date">{createdAt}</p>
         <h5 className="title">{title}</h5>
         <p className="description">{description}</p>
-        <Link to="/" className="button">Leia mais</Link>
+        <Link to={`/blogs/${slug}`} className="button">Leia mais</Link>
       </div>
     </div>
   );

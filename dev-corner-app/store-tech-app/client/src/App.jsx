@@ -14,6 +14,7 @@ import Blogs from "./pages/Blogs";
 import Blog from "./pages/Blog";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/loja" element={<Store />} />
-          <Route path="/produto" element={<Product />} />
+          <Route path="/produtos/:slug" element={<Product />} />
           <Route path="/carrinho" element={<Cart />} />
           <Route path="/finalizar-compra" element={<Checkout />} />
           <Route path="/comparar" element={<Compare />} />
@@ -30,9 +31,10 @@ const App = () => {
           <Route path="/cadastro" element={<SignUp />} />
           <Route path="/favoritos" element={<Wishlist />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blogs/:slug" element={<Blog />} />
           <Route path="/recuperar-senha" element={<ForgotPassword />} />
           <Route path="/redefinir-senha" element={<ResetPassword />} />
+          <Route path="/contato" element={<Contact />} />
         </Route>
       </Routes>
     </Router>
