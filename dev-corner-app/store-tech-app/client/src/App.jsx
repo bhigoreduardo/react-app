@@ -14,6 +14,7 @@ import Blogs from "./pages/Blogs";
 import Blog from "./pages/Blog";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/recuperar-senha" element={<ForgotPassword />} />
           <Route path="/redefinir-senha" element={<ResetPassword />} />
+          <Route path="/contato" element={<Contact />} />
         </Route>
       </Routes>
     </Router>

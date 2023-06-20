@@ -29,21 +29,25 @@ export const categories = [
   {
     title: "Jogos & Música",
     image: "images/category-1.png",
+    url: "jogos-musica",
     count: "10",
   },
   {
     title: "Câmeras",
     image: "images/category-2.avif",
+    url: "cameras",
     count: "10",
   },
   {
     title: "Smart TVs",
     image: "images/category-3.webp",
+    url: "smart-tv",
     count: "10",
   },
   {
     title: "Headphones",
     image: "images/category-4.webp",
+    url: "headphones",
     count: "10",
   }
 ];
