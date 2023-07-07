@@ -1,0 +1,4 @@
+- Admin Dependencies: `yarn add @ant-design/charts antd formik react react-dom react-dropzone react-icons react-quill react-router-dom react-toastify yup`
+- Client Dependencies: `yarn add react react-dom react-fast-marquee react-helmet react-icons react-image-zoom react-rating-stars-component react-router-dom`
+- Server Dependencies: `yarn add bcrypt body-parser cloudinary cookie-parser cors dotenv express express-async-handler jsonwebtoken mongoose morgan multer nodemailer sharp slugify uniqid`
+- Server Dev Dependencies: `yarn add -D nodemon`
