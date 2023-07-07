@@ -1,0 +1,38 @@
+@server=http://localhost:3003
+@endPoint=api/orders
+@orderId=649370aa17cd88b885b85ca3
+
+### POST /
+POST {{ server }}/{{ endPoint }} HTTP/1.1
+Content-Type: application/json
+
+{
+  "cart": [
+    {
+      "_id": "64938b8824426e2b21d450fb",
+      "quantity": 1,
+      "color": "649388c28d2cbf68293c4655",
+      "size": "649387735730506009f1c600"
+    }
+  ],
+  "shipping": 12,
+  "paymentIntent": "649387735730506009f1c600"
+}
+
+### PUT /:id
+PUT {{ server }}/{{ endPoint }}/{{ orderId }} HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Fake new brand",
+  "image": "https://server.com/public/images/fake-brand.jpg"
+}
+
+### DELETE /:id
+DELETE  {{ server }}/{{ endPoint }}/{{ orderId }} HTTP/1.1
+
+### GET /:id
+GET  {{ server }}/{{ endPoint }}/{{ orderId }} HTTP/1.1
+
+### GET /
+GET  {{ server }}/{{ endPoint }} HTTP/1.1
